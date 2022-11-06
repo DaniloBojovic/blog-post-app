@@ -29,7 +29,6 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   getArticles() {
-    debugger;
     this.articlesService
       .getArticles(this.page)
       .pipe(takeUntil(this.destroy$))
@@ -40,7 +39,6 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   add(): void {
-    debugger;
     const dialogRef = this.dialog.open(AddBlogDialogComponent, {
       height: '500px',
       width: '500px',
@@ -52,7 +50,6 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   edit(article: Article) {
-    debugger;
     const dialogRef = this.dialog.open(EditBlogDialogComponent, {
       height: '500px',
       width: '500px',
@@ -70,7 +67,6 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   logout() {
-    debugger;
     localStorage.removeItem('token');
     this.router.navigateByUrl('/login');
   }

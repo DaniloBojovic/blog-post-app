@@ -54,7 +54,6 @@ export class ArticlesService {
   }
 
   edit(id: number, article: Article) {
-    debugger;
     let token = localStorage.getItem('token');
     return this.http.put(
       `${this.url}/articles/${id}?api_token=${token}`,

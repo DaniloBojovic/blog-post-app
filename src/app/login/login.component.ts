@@ -14,13 +14,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    debugger;
     localStorage.setItem('token', this.token);
     this.router.navigateByUrl('/admindashboard');
   }
 
   navigate() {
-    debugger;
     this.router.navigateByUrl('/articles');
   }
 }

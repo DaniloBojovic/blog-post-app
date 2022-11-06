@@ -31,7 +31,6 @@ export class AddBlogDialogComponent implements OnInit {
   }
 
   onSave() {
-    debugger;
     this.articlesService
       .add(this.addForm.value)
       .subscribe((res) => this.dialogRef.close(res));

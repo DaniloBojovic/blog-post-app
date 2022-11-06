@@ -22,8 +22,6 @@ export class EditBlogDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger;
-    console.log(this.articleDetails);
     this.editForm = new FormGroup({
       title: new FormControl(this.articleDetails.title, [
         Validators.required,
@@ -41,7 +39,6 @@ export class EditBlogDialogComponent implements OnInit {
   }
 
   onSave() {
-    debugger;
     this.articlesService
       .edit(this.articleDetails.id, this.editForm.value)
       .subscribe((res) => this.dialogRef.close(res));
