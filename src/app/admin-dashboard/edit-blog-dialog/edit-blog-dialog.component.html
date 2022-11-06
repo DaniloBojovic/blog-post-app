@@ -1,0 +1,36 @@
+<div class="example-container">
+  <div [formGroup]="editForm">
+    <mat-form-field>
+      <mat-label>Title </mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Text</mat-label>
+      <textarea matInput formControlName="body"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Category Id</mat-label>
+      <input type="number" matInput formControlName="category_id" />
+    </mat-form-field>
+    <div class="container">
+      <div>
+        <button
+          type="button"
+          class="btn btn-success btn-lg m-4"
+          (click)="onSave()"
+        >
+          <span>Save</span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger btn-lg m-4"
+          (click)="onCancel()"
+        >
+          <span>Cancel</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

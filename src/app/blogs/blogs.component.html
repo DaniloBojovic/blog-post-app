@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="home">
+    <div class="corner mt-2">
+      <i class="bi bi-tools ps-5 text-primary"></i>
+      <a class="ps-2" [routerLink]="['/admindashboard']"
+        >Go to Admin Dashboard</a
+      >
+    </div>
+  </div>
+  <h2 class="text-center m-3">
+    <i class="bi bi-layout-text-window-reverse"></i
+    ><span class="m-2">Blogs summary</span>
+  </h2>
+  <table class="table table-striped">
+    <thead class="text-center">
+      <tr>
+        <th>Article title</th>
+        <th>Article text</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-template
+        let-article
+        ngFor
+        [ngForOf]="
+          articles
+            | paginate
+              : { itemsPerPage: 10, currentPage: page, totalItems: total }
+        "
+      >
+        <tr>
+          <td>{{ article.title }}</td>
+          <td>{{ article.body }}</td>
+          <td class="align-middle">
+            <button
+              [routerLink]="['/articledetails/', article.id]"
+              type="button"
+              class="btn btn-outline-secondary m-4"
+            >
+              Details
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+  <pagination-controls
+    class="text-center m-3 fs-4"
+    (pageChange)="changePage($event)"
+  ></pagination-controls>
+</div>

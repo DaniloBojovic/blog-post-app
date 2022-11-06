@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header" *ngIf="category">
+    <span class="fst-italic">Category</span>
+    <span class="badge rounded-pill bg-dark ms-2">{{ category.name }}</span>
+  </div>
+  <div class="card-body" *ngIf="article">
+    <h5 class="card-title">{{ article.title }}</h5>
+    <p class="card-text">
+      {{ article.body }}
+    </p>
+    <button type="button" class="btn btn-light" (click)="navigate()">
+      <i class="bi bi-arrow-left px-2"></i>
+      <a class="text-decoration-none text-dark">Back to Blog Summary</a>
+    </button>
+  </div>
+  <ol class="list-group list-group-numbered">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-start"
+      *ngFor="let comment of comments"
+    >
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{ comment.title }}</div>
+        {{ comment.description }}
+      </div>
+      <span class="badge bg-primary rounded-pill"
+        >Comment {{ comment.id }}</span
+      >
+    </li>
+  </ol>
+</div>
