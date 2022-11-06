@@ -13,7 +13,7 @@ import { Comment } from 'src/app/models/comment';
   styleUrls: ['./blog-details.component.css'],
 })
 export class BlogDetailsComponent implements OnInit {
-  article!: any;
+  article!: Article;
   category!: Category;
   comments!: Comment[];
   destroy$ = new Subject<void>();
@@ -32,7 +32,7 @@ export class BlogDetailsComponent implements OnInit {
     this.articleService
       .getArticleById(id)
       .pipe(takeUntil(this.destroy$))
-      .subscribe((res: Article) => {
+      .subscribe((res: any) => {
         this.article = res.data;
         debugger;
         this.getCategoryData(this.article.category_id);
